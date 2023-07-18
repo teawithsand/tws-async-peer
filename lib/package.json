@@ -1,11 +1,35 @@
 {
-  "name": "tws-filesend",
-  "version": "0.0.1",
-  "description": "Library, which simplifies sending files over WEBRTC; Runs on top of peer.js",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "MIT"
+	"name": "@teawithsand/tws-peer",
+	"version": "0.0.1",
+	"description": "Nice async/await messaging over webrtc instead of .on(\"message\") events",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"test": "jest"
+	},
+	"keywords": [
+		"web",
+		"webrtc",
+		"peerjs",
+		"async"
+	],
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"author": "teawithsand",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/jest": "^29.0.3",
+		"@types/react": "^18.0.21",
+		"typescript": "^5.1.6"
+	},
+	"files": [
+		"dist/**"
+	],
+	"dependencies": {
+		"@teawithsand/tws-lts": "^0.0.1",
+		"peerjs": "^1.4.7"
+	}
 }
