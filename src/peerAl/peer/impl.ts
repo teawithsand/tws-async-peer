@@ -2,7 +2,7 @@ import Peer, { PeerJSOption } from "peerjs"
 import { ManagedPeer, ManagedPeerConfig, ManagedPeerEvent, ManagedPeerEventType, ManagedPeerState } from "./abstract"
 import { DefaultEventBus, DefaultStickyEventBus, StickySubscribable, Subscribable, SubscriptionCanceler, generateUUID, latePromise, throwExpression } from "@teawithsand/tws-lts"
 import { PeerEventType, makePeerBus } from "../../peerJsAl"
-import { ManagedPeerDataConnection } from "../dataConn"
+import { ManagedPeerDataConnection, ManagedPeerJSDataConnection } from "../dataConn"
 
 /**
  * ManagedPeer implementation, which uses PeerJS peer.
@@ -149,7 +149,7 @@ export class ManagedPeerJS implements ManagedPeer {
 						handleEvent({
 							type: ManagedPeerEventType.DATA_CONN,
 							peer: this,
-							conn: null as any, // new PeerJSIDataConnection(this, event.conn),
+							conn: new ManagedPeerJSDataConnection(this, event.conn),
 						})
 					}
 				} else if (event.type === PeerEventType.CALL) {
@@ -242,7 +242,7 @@ export class ManagedPeerJS implements ManagedPeer {
 			this.innerPeer ?? throwExpression(new Error("Unreachable code"))
 		).connect(remoteId)
 
-		return null as any // new PeerJSIDataConnection(this, conn)
+		return new ManagedPeerJSDataConnection(this, conn)
 	}
 
 	/**
