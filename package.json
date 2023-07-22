@@ -1,6 +1,6 @@
 {
 	"name": "@teawithsand/tws-async-peer",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Nice async/await wrapper over WebRTC. Use await conn.receive() instead of conn.on(\"message\") events.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
